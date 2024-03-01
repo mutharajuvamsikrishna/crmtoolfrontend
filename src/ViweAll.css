@@ -1,0 +1,37 @@
+/* styles.css */
+
+.id1{
+    min-height: 99vh;
+    width:100%;
+   padding-left: 20px;
+   padding-right: 10px;
+   
+  }
+  /* ViweAll.css */
+.table th,
+.table td {
+  padding: 5px; /* Adjust this value as needed */
+}
+.id6{
+  top:10%;
+  float: right;
+}
+.container6{
+  /* background-color:; */
+  height: 99vh;
+  font-size: 16px;
+  font-weight: bold;
+}
+/* Profile.css */
+.profile-info {
+  margin-bottom: 10px; /* Add margin between profile info elements */
+}
+.id2{
+  font-size: 18px;
+}
+
+
+.addmore{
+  font-size: 16px;
+  font-weight: bold;
+}
