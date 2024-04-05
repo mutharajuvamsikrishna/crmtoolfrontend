@@ -107,7 +107,7 @@ const TagRegister = () => {
   <div style={{backgroundColor:"#f0f2f5",minHeight:'100vh'}}> 
   
   <div className="row g-3 d-flex justify-content-center align-items-center" style={{paddingTop:'9%'}}>
-  <h3 className="mb-4 text-center">Sign Up For ONiE Soft Job Application</h3>
+  <h3 className="mb-4 text-center"> User SignUp for CRM System</h3>
   
     <div className="col-md-7 mb-2">
       <center>
@@ -118,7 +118,7 @@ const TagRegister = () => {
               <input
                 type="text"
                 name="id"
-                placeholder="Enter Email"
+                placeholder="Enter ID"
                 className={`form-control ${
                   formik.touched.id && formik.errors.id
                     ? "is-invalid"
