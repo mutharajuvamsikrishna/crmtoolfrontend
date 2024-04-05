@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { Country}  from 'country-state-city';
 import { useLocation, useNavigate,Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
-
  import { postApplicationDetails } from "./Services/Api";
 import { CgProfile } from 'react-icons/cg';
 const Application = () => {
@@ -83,7 +82,11 @@ call3:"",
 followup:""
   });
   const navigate=useNavigate();
-  
+  const [countryList, setCountryList] = useState ([]);
+  useEffect(() => {
+    setCountryList(Country.getAllCountries());
+
+  })
   const handleSubmit = (event) => {
     event.preventDefault()
     if(formData.currentstate===""){
@@ -166,15 +169,28 @@ if(formData.call3=== 'Yes'&&formData.callstatus2===""){
     });
   };
   
-  // Function to handle changes in form fields
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    const selectedCountry = countryList.find(country => country.name === value);
+  
+    if (selectedCountry) {
+      const timezone = selectedCountry.timezones[0]; // Assuming the first timezone is used
       setFormData({
         ...formData,
         [name]: value,
+        timezone: timezone.gmtOffsetName // Extracting the zoneName from the timezone object
       });
-    
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+       
+      });
+    }
   };
+  
+
+  
   const handleSubmit2 = (type) => {
     
     const data = {
@@ -530,16 +546,22 @@ if (type==="profile"){
               <span style={{ color: 'red' }}>*</span>Country
               </label>
               <div className="col-sm-2 my-1">
-                <input
-                  type="text"
-                  name="coun"
-                  value={formData.coun}
-                  onChange={handleInputChange}
-                  className="form-control"
-                  id="sdate"
-                  autoComplete="coun"
-                  required
-                />
+              <select
+          name="coun"
+          value={formData.coun}
+          onChange={handleInputChange}
+          className="form-control"
+          id="sdate"
+          autoComplete="coun"
+          required
+        >
+          <option value="">Select Country</option>
+          {countryList.map((country, index) => (
+            <option key={country.name} value={country.name}>
+              {country.name}
+            </option>
+          ))}
+        </select>
               </div>
            
               <label htmlFor="email" className="col-sm-2 col-form-label my-1 label-custom">
@@ -555,37 +577,30 @@ if (type==="profile"){
       className="form-control"
       
     >
-      <option value="Asia">Asia</option>
-      <option value="North America">North America</option>
-      <option value="South America">South America</option>
-      <option value="Europe">Europe</option>
-      <option value="Australia">Australia</option>
-      <option value="Europe">Europe</option>
-      <option value="Antarctica">Antarctica</option>
+      <option value="Asia Region">Asia</option>
+      <option value="North America Region">North America</option>
+      <option value="South America Region">South America</option>
+      <option value="Europe Region">Europe</option>
+      <option value="Australia Region">Australia</option>
+      <option value="Europe Region">Europe</option>
+      <option value="Antarctica Region">Antarctica</option>
     </select>
               </div>
-              <label htmlFor="email" className="col-sm-2 col-form-label my-1 label-custom">
-              <span style={{ color: 'red' }}>*</span>Time Zone
-              </label>
-              <div className="col-sm-2 my-1">
-              <select
-      id="id"
-      name="timezone"
-      style={{ color: "green", appearance: "auto" }}
-      value={formData.timezone}
-      onChange={handleInputChange}
-      className="form-control"
-      required
-    >
-      <option value="">Select..</option>
-      <option value="PST">IST</option>
-      <option value="CT">CT</option>
-      <option value="PT">PT</option>
-      <option value="MT">MT</option>
-      <option value="PST">PST</option>
-      
-    </select>
-              </div>
+              <label htmlFor="timezone" className="col-sm-2 col-form-label my-1 label-custom">
+        Time Zone
+      </label>
+      <div className="col-sm-2 my-1">
+        <input
+          type="text"
+          name="timezone"
+          value={formData.timezone}
+          onChange={handleInputChange}
+          className="form-control"
+          autoComplete="timezone"
+          required
+          readOnly // Make it read-only so that users cannot modify it directly
+        />
+      </div>
             
               </div>
 

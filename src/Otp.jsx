@@ -54,7 +54,7 @@ navigate("/regsavesucess", { state: { data: data } }); // Use navigate to change
         
       }
       else{
-        navigate("/invalidotp")
+        alert("Invalid OTP")
       }
         
       })

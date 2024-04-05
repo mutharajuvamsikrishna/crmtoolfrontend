@@ -43,7 +43,7 @@ if(!otpdata.otp.match(v46)){
           navigate("/supadminotp", { state: { data: data } }); 
           
         } else {
-          navigate('/invalidotp');
+          alert("Invalid OTP")
         }
       })
       .catch((error) => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { Country}  from 'country-state-city';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./ViewProApplication.css"; // Import your custom CSS file
 import "./ViweAll.css";
@@ -20,6 +20,7 @@ const AdminEdit = () => {
   const [resstate3,setResstate3]=useState("");
   const [resstate4,setResstate4]=useState("");
   const [resstatesec,setResstatesec]=useState("");
+  const [countryList, setCountryList] = useState ([]);
 const data={
   email:email
 }
@@ -28,10 +29,11 @@ const data={
 
   // State object to store form field values
   const [formData, setFormData] = useState({});
-
-  useEffect(() => {
+   useEffect(() => {
     fetchEmployeeData(id);
+    setCountryList(Country.getAllCountries());
   }, [id]);
+
 
   const fetchEmployeeData = (id) => {
     getProfessional(id)
@@ -59,14 +61,26 @@ const data={
     
   } 
   
-  const handleInputChange = (evant) => {
-    evant.preventDefault();
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
+    const selectedCountry = countryList.find(country => country.name === value);
+  
+    if (selectedCountry) {
+      const timezone = selectedCountry.timezones[0]; // Assuming the first timezone is used
+      setFormData({
+        ...formData,
+        [name]: value,
+        timezone: timezone.gmtOffsetName // Extracting the zoneName from the timezone object
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+        timezone: "" // Resetting timezone if no country is selected
+      });
+    }
   };
+  
   const confirmEdit = (event) => {
     event.preventDefault();
     var v46= /^\d{10}$/;
@@ -389,28 +403,39 @@ return false;
                 </td>
                 <th>Country</th>
                 <td className="id2">
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="coun"
-                    value={formData.coun || ""}
-                    onChange={handleInputChange}
-                    required
-                  />
+                <select
+          name="coun"
+          value={formData.coun}
+          onChange={handleInputChange}
+          className="form-control"
+          id="sdate"
+          autoComplete="coun"
+          required
+        >
+          <option value="">Select Country</option>
+          {countryList.map((country, index) => (
+            <option key={country.name} value={country.name}>
+              {country.name}
+            </option>
+          ))}
+        </select>
+      
                 </td>
               </tr>
 
               <tr>
-                <th>W.r.t IST Time</th>
+                <th>  Time Zone</th>
                 <td className="id2">
-                  <input
-                    className="form-control"
-                    type="time"
-                    name="time"
-                    value={formData.time || ""}
-                    onChange={handleInputChange}
-                  />
-                </td>
+<input
+          type="text"
+          name="timezone"
+          value={formData.timezone}
+          onChange={handleInputChange}
+          className="form-control"
+          autoComplete="timezone"
+          required
+          readOnly // Make it read-only so that users cannot modify it directly
+        />                </td>
                 <th>Before/After</th>
                 <td className="id2">
                   <select
