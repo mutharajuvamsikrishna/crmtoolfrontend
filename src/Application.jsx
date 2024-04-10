@@ -334,7 +334,7 @@ if (type==="profile"){
     name="cmpname"
     value={formData.cmpname}
     onChange={handleInputChange}
-    
+    placeholder="Enter Company"
     className="form-control"
     id="rexpy"
     autoComplete="cmpname"
@@ -455,6 +455,7 @@ if (type==="profile"){
       onChange={handleInputChange}
       className="form-control"
       autoComplete="moredetails"
+      placeholder="Enter Summary"
       rows="1" // You can adjust this initial number of rows
       style={{ resize: "vertical" }} // This allows vertical resizing
       required
@@ -473,6 +474,7 @@ if (type==="profile"){
       value={formData.infoshared}
       onChange={handleInputChange}
       className="form-control"
+      placeholder="Enter Info Shared"
       autoComplete="infoshared"
       rows="1" // You can adjust this initial number of rows
       style={{ resize: "vertical" }} // This allows vertical resizing
@@ -489,6 +491,7 @@ if (type==="profile"){
       value={formData.detailask}
       onChange={handleInputChange}
       className="form-control"
+      placeholder="Enter Details Asked"
       autoComplete="detailask"
       rows="1" // You can adjust this initial number of rows
       style={{ resize: "vertical" }} // This allows vertical resizing
@@ -507,6 +510,7 @@ if (type==="profile"){
                   value={formData.website}
                   onChange={handleInputChange}
                   className="form-control"
+                  placeholder="Enter Website"
                   autoComplete=""
                   required
                 />
@@ -519,6 +523,7 @@ if (type==="profile"){
                   type="text"
                   name="linkprof"
                   value={formData.linkprof}
+                  placeholder="Enter Linkdin Profile"
                   onChange={handleInputChange}
                   className="form-control"
                   autoComplete="linkprof"
@@ -661,6 +666,7 @@ if (type==="profile"){
                   value={formData.maincontact}
                   onChange={handleInputChange}
                   className="form-control"
+                  placeholder="Enter Full Name"
                   id="sdate"
                   autoComplete=""
                   required
@@ -675,6 +681,7 @@ if (type==="profile"){
                 <input
                   type="text"
                   name="mainlinkprof"
+                  placeholder="Enter Linkdin Profile"
                   value={formData.mainlinkprof}
                   onChange={handleInputChange}
                   className="form-control"
@@ -688,6 +695,7 @@ if (type==="profile"){
                 <input
                   type="email"
                   name="mainemail"
+                  placeholder="Enter Email"
                   value={formData.mainemail}
                   onChange={handleInputChange}
                   className="form-control"
@@ -703,6 +711,7 @@ if (type==="profile"){
               <div className="col-sm-2 my-1">
                 <input
                   type="tel"
+                  placeholder="Enter Mobile Number"
                   name="mainmob"
                   value={formData.mainmob}
                   onChange={handleInputChange}
@@ -729,6 +738,7 @@ Full Name
               <div className="col-sm-2 my-1">
                 <input
                   type="text"
+                  placeholder="Enter Full Name"
                   name="secondcontact"
                   value={formData.secondcontact}
                   onChange={handleInputChange}
@@ -747,6 +757,7 @@ Full Name
                 <input
                   type="text"
                   name="secondlinkprof"
+                  placeholder="Enter Linkdin Profile"
                   value={formData.secondlinkprof}
                   onChange={handleInputChange}
                   className="form-control"
@@ -760,6 +771,7 @@ Full Name
                 <input
                   type="email"
                   name="secondemail"
+                  placeholder="Enter Email"
                   value={formData.secondemail}
                   onChange={handleInputChange}
                   className="form-control"
@@ -774,6 +786,7 @@ Full Name
                 <input
                   type="tel"
                   name="secondmob"
+                  placeholder="Enter Mobile Number"
                   value={formData.secondmob}
                   onChange={handleInputChange}
                   className="form-control"
@@ -816,6 +829,7 @@ Full Name
                 <input
                   type="text"
                   name="emname"
+                  placeholder="Enter From Name"
                   value={formData.emname}
                   onChange={handleInputChange}
                   className="form-control"
@@ -831,6 +845,7 @@ Full Name
                   type="text"
                   name="emtoname"
                   value={formData.emtoname}
+                  placeholder="Enter To Name"
                   onChange={handleInputChange}
                   className="form-control"
                   required
@@ -867,6 +882,7 @@ Full Name
       value={formData.emsummary}
       onChange={handleInputChange}
       className="form-control"
+      placeholder="Enter Summary"
       autoComplete="emsummary"
       rows="1" // You can adjust this initial number of rows
       style={{ resize: "vertical" }} // This allows vertical resizing
@@ -924,6 +940,7 @@ Full Name
                 <input
                   type="text"
                   name="emname1"
+                  placeholder="Enter From Name"
                   value={formData.emname1}
                   onChange={handleInputChange}
                   className="form-control"
@@ -938,6 +955,7 @@ Full Name
                 <input
                   type="text"
                   name="emtoname1"
+                  placeholder="Enter To Name"
                   value={formData.emtoname1}
                   onChange={handleInputChange}
                   className="form-control"
@@ -975,6 +993,7 @@ Full Name
       value={formData.emsummary1}
       onChange={handleInputChange}
       className="form-control"
+      placeholder="Enter Summary"
       autoComplete="emsummary1"
       rows="1" // You can adjust this initial number of rows
       style={{ resize: "vertical" }} // This allows vertical resizing
@@ -1035,6 +1054,7 @@ Full Name
                   type="text"
                   name="emname2"
                   value={formData.emname2}
+                  placeholder="Enter From Name"
                   onChange={handleInputChange}
                   className="form-control"
                   autoComplete=""
@@ -1048,6 +1068,7 @@ Full Name
                 <input
                   type="text"
                   name="emtoname2"
+                  placeholder="Enter To Name"
                   value={formData.emtoname2}
                   onChange={handleInputChange}
                   className="form-control"
@@ -1081,6 +1102,7 @@ Full Name
   <div className="col-sm-6 my-1">
     <textarea
       name="emsummary2"
+      placeholder="Enter Summary"
       value={formData.emsummary2}
       onChange={handleInputChange}
       className="form-control"
@@ -1156,6 +1178,7 @@ Full Name
                 <input
                   type="text"
                   name="fromname"
+                  placeholder="Enter From Name"
                   value={formData.fromname}
                   onChange={handleInputChange}
                   className="form-control"
@@ -1191,6 +1214,7 @@ Full Name
   <div className="col-sm-6 my-1">
     <textarea
       name="callsummery"
+      placeholder="Enter MOM with Actions"
       value={formData.callsummery}
       onChange={handleInputChange}
       className="form-control"
@@ -1265,6 +1289,7 @@ Full Name
                 <input
                   type="text"
                   name="fromname1"
+                  placeholder="Enter From Name"
                   value={formData.fromname1}
                   onChange={handleInputChange}
                   className="form-control"
@@ -1299,6 +1324,7 @@ Full Name
   <div className="col-sm-6 my-1">
     <textarea
       name="callsummery1"
+      placeholder="Enter MOM with Actions"
       value={formData.callsummery1}
       onChange={handleInputChange}
       className="form-control"
@@ -1374,6 +1400,7 @@ Full Name
                   type="text"
                   name="fromname2"
                   value={formData.fromname2}
+                  placeholder="Enter From Name"
                   onChange={handleInputChange}
                   className="form-control"
                   required
@@ -1407,6 +1434,7 @@ Full Name
   <div className="col-sm-6 my-1">
     <textarea
       name="callsummery2"
+      placeholder="Enter MOM with Actions"
       value={formData.callsummery2}
       onChange={handleInputChange}
       className="form-control"
