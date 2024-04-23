@@ -10,7 +10,7 @@ import Register from './register';
 import Otp from './Otp';
 import Regsucess from './Regsucess';
 import Registersave from './Registersave';
-import Invalidotp from './Invalidotp';
+
 import Login from './Login';
 import Forgetpassword from './Forgetpassword';
 import Invalidcredits from './Invalidcredits';
