@@ -64,7 +64,6 @@ function App() {
           <Route path="/regsucess" element={<Regsucess />} />
           <Route path="/regsucess1" element={<Regsucess1/>}/>
           <Route path="/regsavesucess" element={<Registersave />} />
-          <Route path="/invalidotp" element={<Invalidotp />} />
           <Route path="/regfail" element={<Regfail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgetpassword" element={<Forgetpassword />} />
